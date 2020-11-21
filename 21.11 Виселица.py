@@ -4,8 +4,19 @@ from random import randint # Добавляем библиотеку случа�
 
 word = "австралия"
 
-letter = input("Введите букву: ")
+game = True
 
-if letter in word:
-    print("Есть такая буква!")
+while game:
+    print()
     
+    letter = input("Введите букву или слово: ")
+
+    if letter == word:
+        print("ТЫ ПОБЕДИЛ! Игра окончена")
+        game = False
+        
+    elif letter in word:
+        print("Есть такая буква!")
+        
+    else:
+        print("Не подходит")
