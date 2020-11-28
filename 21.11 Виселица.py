@@ -12,6 +12,7 @@ print(word)
 game = True #Игра повторяется, пока эта переменная True
 lives = 10 #В начале игры у игрока 10 жизней
 
+
 letters = []#список угаданных букв
 
 while game:
@@ -20,18 +21,34 @@ while game:
     print("*"+"___*"*len(word))
     letter = input("Введите букву или слово: ")
 
-    if letter == word:
-        print("ТЫ ПОБЕДИЛ! Игра окончена")
-        game = False
+    if len(letter)<1: #нам НИЧЕГО не ввели
+        print("Нужно ввести что-нибудь, букву или слово")
         
-    elif letter in word:
-        print("Есть такая буква!")
-        letters.append(letter) #Добавляем в список угаданных букв 
+    elif len(letter) == 1: #нам ввели БУКВУ
+       ##Проверяем букву
+        if letter in word:
+            if letter not in letters: #Если этой буквы нет в списке угаданных
+                print("Есть такая буква!")            
+                letters.append(letter) #Добавляем в список угаданных букв
+            else:
+                print("Ты уже угадывал такую букву")
+                lives = lives - 1 
+        else:
+            print("такой буквы нет")
+            lives = lives - 1    
+
+    else: #нам ввели СЛОВО
+        if letter == word:
+            print("ТЫ ПОБЕДИЛ! Игра окончена")
+            
+        else:
+            print("Не угадал!")
+            
+        game = False    
         
-    else:
-        print("Не подходит")
-        lives = lives - 1
-    print("Осталось", lives, "жизней")
+          
+    
+    print("Осталось", lives, "жизней")    
     print("Угаданные буквы: ", letters)
 
     #Если жизни кончились, цикл должен остановиться
