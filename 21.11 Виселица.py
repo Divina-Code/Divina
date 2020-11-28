@@ -18,7 +18,24 @@ letters = []#список угаданных букв
 while game:
     print()
     print()
-    print("*"+"___*"*len(word))
+    #print("*"+"___*"*len(word))
+
+    i = 0 #Создаём счётчик для индексов букв
+    toPrint = '' #пустая строка, в которую будем добавлять буквы или тире
+    
+    while i < len(word):  #запускаем цикл на столько повторов, сколько у нас букв
+        
+        if word[i] in letters: #Если буква была угадана
+            toPrint = toPrint + word[i] #Добавляю букву с нужным индексом
+        else: 
+            toPrint = toPrint +  " __ " 
+        i= i+1
+    
+    print(toPrint)
+    
+
+
+    
     letter = input("Введите букву или слово: ")
 
     if len(letter)<1: #нам НИЧЕГО не ввели
