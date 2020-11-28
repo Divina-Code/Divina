@@ -29,7 +29,7 @@ while game:
             toPrint = toPrint + word[i] #Добавляю букву с нужным индексом
         else: 
             toPrint = toPrint +  " __ " 
-        i= i+1
+         
     
     print(toPrint)
     
