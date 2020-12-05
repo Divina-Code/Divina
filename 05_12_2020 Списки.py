@@ -19,18 +19,18 @@ print(myStuff[1] > 100)
 myStuff[1] = 3948
 myStuff[1] = myStuff[1] + 2
 myStuff[1] +=  1000
-myStuff[1] + 1000000
+myStuff[1] + 1000000  #НЕ МЕНЯЕТ ЭЛЕМЕНТ
 print(myStuff)
 
 #Как добавить элемент
-myStuff.append("Good")
+myStuff.append("Good") #Добавить в конец
 myStuff.append(65)
 myStuff.append(False)
 myStuff.append(myRats)
 print(myStuff)
 
 #Как удалить элемент
-myStuff.pop()
+myStuff.pop()  # Удалить последний элемент
 print(myStuff)
-myStuff.pop(3)
+myStuff.pop(3) # Удалить элемент с индексом 3
 print(myStuff)
