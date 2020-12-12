@@ -18,7 +18,7 @@ print(myStuff[1] > 100)
 #Как изменить список
 myStuff[1] = 3948
 myStuff[1] = myStuff[1] + 2
-myStuff[1] +=  1000
+myStuff[1] +=  1000  #Прибавляем к элемнту с индексом 1 тысячу
 myStuff[1] + 1000000  #НЕ МЕНЯЕТ ЭЛЕМЕНТ
 print(myStuff)
 
