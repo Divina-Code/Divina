@@ -6,7 +6,7 @@ myCats = [ 'Bonya']
 myRats = ['Busia', 'Raul', 'Ron']
 myStuff = ["Axaxaxaxxa", 536, True, myCats]
 
-myShoppingList = []
+
 
 #Как получить элемент списка
 print(myRats[1])  #Второй с начала (отсчёт с 0)
