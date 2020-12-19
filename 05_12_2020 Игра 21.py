@@ -1,62 +1,54 @@
 from random import randint
 
-
-
 #####
 print("добро пожаловать в игру 21")
-n = int(input("Сколько игроков будет?\t"))  
+n = int(input("Сколько игроков будет?\t"))
 print()
 
 ###Записываем имена игроков в список
-players = [] #Список имён игроков
-for i in range(n):  #НОВЫЙ ЦИКЛ FOR
-    name = input("Введите имя " +str(i+1)+"-го игрока:\t" )
-    players.append(name) #Добавляем имя в список
+players = []  # Список имён игроков СТРОКА
+points = []  # Сколько очков набрал каждый игрок ЧИСЛО
+playORnot = []  # Продолжает игрок или нет TRUE/FALSE
 
-print("\nИГРОКИ: ", players)
+for i in range(n):  # цикл повторяется столько раз, сколько у нас игроков
+    # ИМЯ
+    name = input("Введите имя " + str(i + 1) + "-го игрока:\t")
+    players.append(name)  # Добавляем имя в список
 
+    # ОЧКИ
+    random_points = randint(1, 10) #Генерируем рандоммное число
+    points.append(random_points) #добавляем в список points
 
-### Генерируем каждому игроку его стартовый счёт
-points = [] #Сколько очков набрал каждый игрок
-for i in range(n):
-    random_points = randint(1, 10)
-    points.append(random_points)
-    print(players[i], "Ваш счёт:", random_points)
-
-print("\nОЧКИ: ",points)
-
-
-###Продолжает игрок или нет
-playORnot = []
-for i in range(n):
+    # ИГРАЕТ ИЛИ НЕТ
     playORnot.append(True)
-    #Добавилли True столько раз, сколько у нас игроков
+
+for i in range(n):  # Выводим счёт для каждого игрока
+    print(players[i], "У вас очков:", points[i])
 
 ### ОСНОВНАЯ ИГРА НАЧИНАЕТСЯ ТУТ
 
-while playORnot.count(True) >0:
+while playORnot.count(True) > 0:
     print("\n \t\t\tROUND")
 
     for i in range(n):
+        print()
         if playORnot[i] == True:
             answer = input(players[i] + ' будете брать карту? [ДА\НЕТ]')
 
-            answer = answer.upper() #Делаем все буквы ЗАГЛАВНЫМИ
-            answer = answer.strip()  #УБираем лишние пробелы, если они есть
+            answer = answer.upper()  # Делаем все буквы ЗАГЛАВНЫМИ
+            answer = answer.strip()  # УБираем лишние пробелы, если они есть
 
             if answer == "ДА":
-                print("Вы ответили ", answer)
                 random_points = randint(1, 10)
-                points[i]+=random_points
+                points[i] += random_points
                 print(players[i], "Вам выпало:", random_points)
 
-                if points[i] >=21:
+                if points[i] >= 21:
                     playORnot[i] = False
                     ###Если игрок набрал 21 очко или больше, то он выбывает из игры
 
 
-                ##!!!!! Сгенерировать новое число от 1 до 10 и прибавить к счёту игрока
-                ## Вывести игроку его новый счёт
+
             elif answer == "НЕТ":
                 print("Вы ответили ", answer)
                 playORnot[i] = False
@@ -64,5 +56,5 @@ while playORnot.count(True) >0:
                 print("Не понял твоего ответа, принимаю только 'ДА' или 'НЕТ' ")
 
     print("\n____________________________")
-    for i in range(n): # Выводим счёт для каждого игрока
+    for i in range(n):  # Выводим счёт для каждого игрока
         print(players[i], "У вас очков:", points[i])
